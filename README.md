@@ -15,12 +15,12 @@ logic-level N-channel MOSFETs. The ESP32 GPIO pins cannot power the strip.
 | Strip `G` | Green MOSFET drain |
 | Strip `B` | Blue MOSFET drain |
 | MOSFET sources | External supply ground |
-| ESP32 GPIO 4 | Red MOSFET gate through 100-220 ohm resistor |
-| ESP32 GPIO 5 | Green MOSFET gate through 100-220 ohm resistor |
-| ESP32 GPIO 6 | Blue MOSFET gate through 100-220 ohm resistor |
-| ESP32 GPIO 7 | Segment 2 red MOSFET gate through 100-220 ohm resistor |
-| ESP32 GPIO 8 | Segment 2 green MOSFET gate through 100-220 ohm resistor |
-| ESP32 GPIO 9 | Segment 2 blue MOSFET gate through 100-220 ohm resistor |
+| ESP32 GPIO 4 | Blue MOSFET gate through 100-220 ohm resistor |
+| ESP32 GPIO 5 | Red MOSFET gate through 100-220 ohm resistor |
+| ESP32 GPIO 6 | Green MOSFET gate through 100-220 ohm resistor |
+| ESP32 GPIO 7 | Segment 2 blue MOSFET gate through 100-220 ohm resistor |
+| ESP32 GPIO 8 | Segment 2 red MOSFET gate through 100-220 ohm resistor |
+| ESP32 GPIO 9 | Segment 2 green MOSFET gate through 100-220 ohm resistor |
 | ESP32 GND | External supply ground |
 
 Each strip segment uses its own three MOSFETs. Add a 10 kilohm pull-down
@@ -89,10 +89,10 @@ these live values show the animation changing in real time.
 Example:
 
 ```json
-{"type":"telemetry","linked":false,"effect":"pulse","segment_1":{"rgb":[124,92,255],"brightness":180,"outputs":{"R(GPIO4)":52,"G(GPIO5)":38,"B(GPIO6)":107}},"segment_2":{"rgb":[53,185,255],"brightness":140,"outputs":{"R(GPIO7)":17,"G(GPIO8)":59,"B(GPIO9)":82}}}
+{"type":"telemetry","linked":false,"effect":"pulse","segment_1":{"rgb":[124,92,255],"brightness":180,"outputs":{"R(GPIO5)":52,"G(GPIO6)":38,"B(GPIO4)":107}},"segment_2":{"rgb":[53,185,255],"brightness":140,"outputs":{"R(GPIO8)":17,"G(GPIO9)":59,"B(GPIO7)":82}}}
 ```
 
-Segment 1 uses GPIO 4/5/6, and segment 2 uses GPIO 7/8/9.
+Segment 1 uses GPIO 5/6/4 for red/green/blue, and segment 2 uses GPIO 8/9/7.
 
 Change `DEBUG_ENABLED` or `DEBUG_INTERVAL_MS` in `include/rgb_config.h` to
 set the initial default or adjust its frequency. The **Enable serial debugging**

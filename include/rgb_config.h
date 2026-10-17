@@ -6,12 +6,14 @@ namespace RgbConfig {
 
 // GPIOs drive the gates of three external logic-level N-channel MOSFETs.
 // Do not connect the LED strip channels directly to these pins.
-constexpr uint8_t RED_PIN = 4;
-constexpr uint8_t GREEN_PIN = 5;
-constexpr uint8_t BLUE_PIN = 6;
-constexpr uint8_t SEGMENT_2_RED_PIN = 7;
-constexpr uint8_t SEGMENT_2_GREEN_PIN = 8;
-constexpr uint8_t SEGMENT_2_BLUE_PIN = 9;
+// The installed strip's leads are ordered B, R, G across each three-pin bank.
+// Keep these names logical so the dashboard and telemetry report actual color.
+constexpr uint8_t RED_PIN = 5;
+constexpr uint8_t GREEN_PIN = 6;
+constexpr uint8_t BLUE_PIN = 4;
+constexpr uint8_t SEGMENT_2_RED_PIN = 8;
+constexpr uint8_t SEGMENT_2_GREEN_PIN = 9;
+constexpr uint8_t SEGMENT_2_BLUE_PIN = 7;
 constexpr uint8_t ONBOARD_NEOPIXEL_PIN = 48;
 
 constexpr uint8_t RED_CHANNEL = 0;
